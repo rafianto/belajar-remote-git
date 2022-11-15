@@ -1,1 +1,1 @@
-print("Hello Dunia Python")
+print("Hello Dunia Python - kita belajar data analis")
