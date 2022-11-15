@@ -8,7 +8,7 @@ import numpy as np
 #ax.plot([1, 2, 3, 4], [1, 4, 2, 3]);  # Plot some data on the axes.pip
 # plt.show()
 
-#plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
+#plt.plot([1, 2, 3, 4], [1, 4, 9, 16])  
 #plt.show()
 
 x = np.arange(1,20,0.5)
