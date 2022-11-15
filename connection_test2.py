@@ -1,6 +1,6 @@
 
 
-import psycopg2
+import psycopg2 
 import pandas as pd
 import pandas.io.sql as psql
 import matplotlib as mpl
@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 hostname = 'localhost'
-database = 'the_look_ecommerce'
-username = 'postgres'
-pwd = 'sevillas123'
+database = 'hr'
+username = 'hr'
+pwd = 'hr'
 port_id = 5432
 
 try:
@@ -24,12 +24,18 @@ try:
     
     
     cur = conn.cursor()
-    cur.execute("select * from leson4_view")
+    cur.execute("select distinct c.state_name, "+
+        " count(c.consecutive_number) countdata, "+
+        " sum(c.number_of_fatalities) fatalities, "+
+        " sum(c.number_of_drunk_drivers) drunk_drivers, "+
+        " sum(c.number_of_vehicle_forms_submitted_all) vehicle_forms_submit, "+
+        " sum(c.number_of_motor_vehicles_in_transport_mvit) number_of_motor_vehicles "+ 
+        " from crash c group by c.state_name ")
    
     row = cur.fetchall()
     
     for r in row:
-        print(f" id {r[0]}  name {r[1]}  email {r[2]} accesorie {r[3]}")
+        print(f" id {r[0]}  {r[1]}  {r[2]} {r[3]}")
         
     print("conecction succes and done")
     
