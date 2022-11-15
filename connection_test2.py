@@ -1,4 +1,4 @@
-
+# Tugas Akhir : PA.1.3 Tugas utama
 
 import psycopg2 
 import pandas as pd
@@ -36,8 +36,9 @@ try:
     
     for r in row:
         print(f" id {r[0]}  {r[1]}  {r[2]} {r[3]}")
-        
-    print("conecction succes and done")
+    
+    print("#---------------------------------------")    
+    print("conecction to PostgreSQL succes and done")
     
     cur.close() 
     conn.close()
