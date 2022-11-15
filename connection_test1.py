@@ -22,7 +22,7 @@ try:
         port = port_id
     )
     
-    
+    # buat cursor
     cur = conn.cursor()
     cur.execute("select * from leson4_view")
    
