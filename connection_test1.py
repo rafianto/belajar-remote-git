@@ -1,5 +1,5 @@
 
-
+# Pembelajaran Python Connection
 import psycopg2
 import pandas as pd
 import pandas.io.sql as psql
