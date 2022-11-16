@@ -35,8 +35,8 @@ try:
  
     
     data = pd.read_sql('select * from ped_crashes ',conn)
-    dx = data.head(10)
-    print(dx)
+    # dx = data.head(10) -- cek point
+    # print(dx)
 
     # injury crash
     # plt.figure(figsize=(15,10))
@@ -82,4 +82,3 @@ try:
     conn.close()
 except Exception as error:
     print(error)
-
