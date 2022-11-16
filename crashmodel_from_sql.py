@@ -27,7 +27,7 @@ try:
     
     # cur = conn.cursor()
     # cur.execute("select *  from ped_crashes limit 5")
-    # row = cur.fetchall()
+    # row = cur.fetchall() 
     # print("#---------------------------------------")
     # for r in row:
     #    print(f" id {r[0]}  {r[1]}  {r[2]} {r[3]}")
