@@ -32,7 +32,6 @@ sns.countplot(x="Worst Injury in Crash", data=data)
 plt.show()
 
 # parametaer
-
 injury_num = []
 for i in data["Worst Injury in Crash"]:
     if i == "No injury (O)":
@@ -65,6 +64,7 @@ plt.title("Month", fontsize=25)
 sns.countplot(x="Crash Month", data=data)
 plt.show()
 
+# Crash day Gender
 plt.figure(figsize=(15,10))
 plt.title("Day", fontsize=25)
 sns.histplot(x="Crash Day", hue="Person Gender", kde=True, bins=31, data=data)
