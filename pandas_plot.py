@@ -15,11 +15,15 @@ print(df.head())
 o1 = df.plot(kind='bar')
 
 #plot A B
-o2 = df[['A','B']].plot(kind='bar')
-
+o2 = df[['A','B']].plot(kind='line')
 
 print(o1)
 print(o2)
+
+o3 = df.plot(x='A', y='B', kind='scatter')
+
+print(o3)
+
 
 plt.figure(figsize=(15,10))
 plt.title("Pandas Plot", fontsize=25)
