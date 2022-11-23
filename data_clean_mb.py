@@ -25,7 +25,7 @@ try:
 
     # engine = create_engine("postgressql:///:memory:", echo=True, future=True)
 
-    fdata = pd.read_sql('select tanggal,branch,supplier,cust_group,sales_qty,hna,total_hna from sales2022',conn)
+    fdata = pd.read_sql('select tanggal,branch,supplier,cust_group,productgrp,sales_qty,hna,total_hna from sales2022',conn)
  
     cek1 = fdata.head()
     # cek korelasi data
