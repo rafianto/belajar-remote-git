@@ -6,11 +6,12 @@ import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+from sqlalchemy import create_engine
 
 hostname = 'localhost'
-database = 'hr'
-username = 'hr'
-pwd = 'hr'
+database = 'datambs'
+username = 'postgres'
+pwd = 'sevillas123'
 port_id = 5432
 
 try:
@@ -22,7 +23,9 @@ try:
         port = port_id
     )
 
-    fdata = pd.read_sql('select * from public.crash',conn)
+    # engine = create_engine("postgressql:///:memory:", echo=True, future=True)
+
+    fdata = pd.read_sql('select tanggal,branch,supplier,cust_group,sales_qty,hna,total_hna from sales2022',conn)
  
     cek1 = fdata.head()
     # cek korelasi data
@@ -31,12 +34,12 @@ try:
     print(fdata.info())
     # cek korelasi 
     smp = sns.heatmap(korelasi)
-    sns.boxplot(x='number_of_drunk_drivers',data=korelasi)
-    #plt.show()
- 
+    #sns.boxplot(x='supplier',data=korelasi)
+    plt.show()
+   
     #menentukan q1,q3 batas bawah, batas atas dan selisih q3-q1 
     #cek outlier data
-    q1,q3 = np.percentile(fdata['number_of_persons_in_motor_vehicles_in_transport_mvit'], [25,75])
+    q1,q3 = np.percentile(fdata['total_hna'], [25,75])
     s1 = q3-q1
     ba1 = q3+(1.5*s1) 
     bw1 = q1-(1.5*s1)
@@ -46,8 +49,6 @@ try:
     print(ba1)
     print(bw1)
     
-    df1 = fdata[fdata['number_of_persons_in_motor_vehicles_in_transport_mvit']>bw1 | fdata['number_of_persons_in_motor_vehicles_in_transport_mvit']<ba1]
-    print(df1)   
     
     conn.close()   
 except Exception as error:
